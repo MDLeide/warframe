@@ -9,7 +9,7 @@ namespace Warframe.Market
         {
             BaseUrl = baseUrl;
         }
-
+        
 
         public string BaseUrl { get; set; }
 
@@ -19,11 +19,29 @@ namespace Warframe.Market
             throw new NotImplementedException();
         }
 
+        public ItemMarketData GetMarketData(Item item, DateTimeOffset inclusiveStart)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ItemMarketData GetMarketData(Item item, DateTimeOffset inclusiveStart, DateTimeOffset inclusiveEnd)
+        {
+            throw new NotImplementedException();
+        }
+
         public Dictionary<DateTimeOffset, ItemMarketData> GetMarketData(IEnumerable<Item> items)
         {
             throw new NotImplementedException();
         }
 
+        public Dictionary<DateTimeOffset, ItemMarketData> GetMarketData(IEnumerable<Item> items, DateTimeOffset inclusiveStart)
+        {
+            throw new NotImplementedException();
+        }
 
+        public Dictionary<DateTimeOffset, ItemMarketData> GetMarketData(IEnumerable<Item> items, DateTimeOffset inclusiveStart, DateTimeOffset inclusiveEnd)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
