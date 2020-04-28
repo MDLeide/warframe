@@ -2,7 +2,7 @@
 
 namespace Warframe.Data
 {
-    public class Class1
+    public class WeaponDataProvider
     {
     }
 }

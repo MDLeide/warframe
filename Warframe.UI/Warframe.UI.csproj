@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{613B996B-9852-4800-AB39-ED776B87505D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Warframe.UI</RootNamespace>
+    <AssemblyName>Warframe.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Screens\Baro\BaroHistoryViewModel.cs" />
+    <Compile Include="Screens\Baro\BaroOfferingCardView.xaml.cs">
+      <DependentUpon>BaroOfferingCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Baro\BaroOfferingDetailView.xaml.cs">
+      <DependentUpon>BaroOfferingDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Baro\BaroOfferingGridIitemView.xaml.cs">
+      <DependentUpon>BaroOfferingGridIitemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Baro\BaroOfferingItemGridItemView.xaml.cs">
+      <DependentUpon>BaroOfferingItemGridItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Baro\BaroOfferingItemRowView.xaml.cs">
+      <DependentUpon>BaroOfferingItemRowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Baro\BaroOfferingItemViewModel.cs" />
+    <Compile Include="Screens\Baro\BaroOfferingLargeRowView.xaml.cs">
+      <DependentUpon>BaroOfferingLargeRowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Baro\BaroOfferingViewModel.cs" />
+    <Compile Include="ViewModel.cs" />
+    <Page Include="Components\Items\ItemCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\Items\ItemDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\Items\ItemGridItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\Items\ItemIconView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\Items\ItemLargeRowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\Items\ItemRowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Baro\BaroByDateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Baro\BaroByItemDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Baro\BaroByItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Baro\BaroDataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Baro\BaroHistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Components\Items\ItemCardView.xaml.cs">
+      <DependentUpon>ItemCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Items\ItemDetailView.xaml.cs">
+      <DependentUpon>ItemDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Items\ItemGridItemView.xaml.cs">
+      <DependentUpon>ItemGridItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Items\ItemIconView.xaml.cs">
+      <DependentUpon>ItemIconView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Items\ItemLargeRowView.xaml.cs">
+      <DependentUpon>ItemLargeRowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Items\ItemRowView.xaml.cs">
+      <DependentUpon>ItemRowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Baro\BaroByDateView.xaml.cs">
+      <DependentUpon>BaroByDateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Baro\BaroByItemDetailView.xaml.cs">
+      <DependentUpon>BaroByItemDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Baro\BaroByItemView.xaml.cs">
+      <DependentUpon>BaroByItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Baro\BaroHistoryView.xaml.cs">
+      <DependentUpon>BaroHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Screens\Baro\BaroOfferingCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Baro\BaroOfferingDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Baro\BaroOfferingGridIitemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Baro\BaroOfferingItemGridItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Baro\BaroOfferingItemRowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Baro\BaroOfferingLargeRowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Warframe\Warframe.csproj">
+      <Project>{db39f6e5-4cb9-4f99-ae60-cb1f6c623912}</Project>
+      <Name>Warframe</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\Items\Warframes\" />
+    <Folder Include="Components\Items\Weapons\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
