@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
-namespace Warframe.Market
+namespace Warframe.Market.Data
 {
     public class WebScrapingMarketDataProvider : IMarketDataProvider
     {
@@ -9,13 +11,20 @@ namespace Warframe.Market
         {
             BaseUrl = baseUrl;
         }
-        
+
 
         public string BaseUrl { get; set; }
 
 
-        public ItemMarketData GetMarketData(Item item)
+        public async Task<ItemMarketData> GetMarketData(Item item)
         {
+            var name = item.Name.Replace("-", "_").Replace(" ", "_").ToLower();
+            var uri = $"{BaseUrl}/items/{name}/statistics";
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, uri);
+            request.Content = new StringContent(string.Empty);
+            await client.SendAsync(request);
+
             throw new NotImplementedException();
         }
 
@@ -40,6 +49,11 @@ namespace Warframe.Market
         }
 
         public Dictionary<DateTimeOffset, ItemMarketData> GetMarketData(IEnumerable<Item> items, DateTimeOffset inclusiveStart, DateTimeOffset inclusiveEnd)
+        {
+            throw new NotImplementedException();
+        }
+
+        ItemMarketData IMarketDataProvider.GetMarketData(Item item)
         {
             throw new NotImplementedException();
         }
