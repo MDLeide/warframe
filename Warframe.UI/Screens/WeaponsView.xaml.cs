@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Warframe.UI
+namespace Warframe.UI.Screens
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for WeaponsView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class WeaponsView : UserControl
     {
-        public MainWindow()
+        public WeaponsView()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
         }
     }
 }

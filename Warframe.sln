@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warframe.Market", "Warframe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warframe.Market.Data", "Warframe.Market.Data\Warframe.Market.Data.csproj", "{3B2E3856-B83A-4680-8CB8-618EF5C839F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warframe.Data.Test", "Warframe.Data.Test\Warframe.Data.Test.csproj", "{886B9DD1-26A4-4A38-AFDD-F2EB1CB606C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3B2E3856-B83A-4680-8CB8-618EF5C839F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B2E3856-B83A-4680-8CB8-618EF5C839F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B2E3856-B83A-4680-8CB8-618EF5C839F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{886B9DD1-26A4-4A38-AFDD-F2EB1CB606C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{886B9DD1-26A4-4A38-AFDD-F2EB1CB606C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{886B9DD1-26A4-4A38-AFDD-F2EB1CB606C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{886B9DD1-26A4-4A38-AFDD-F2EB1CB606C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

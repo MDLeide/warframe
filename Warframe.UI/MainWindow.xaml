@@ -5,9 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Warframe.UI"
         xmlns:baro="clr-namespace:Warframe.UI.Screens.Baro"
+        xmlns:screens="clr-namespace:Warframe.UI.Screens"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <baro:BaroHistoryView DataContext="{Binding BaroHistory}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Command="{Binding Load}" Content="Load" Grid.Row="0"/>
+        <screens:WeaponsView Grid.Row="1"/>
+        <!--<baro:BaroHistoryView DataContext="{Binding BaroHistory}"/>-->
     </Grid>
 </Window>

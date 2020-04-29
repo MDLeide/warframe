@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Components\Items\Weapons\WeaponViewModel.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="Screens\Baro\BaroHistoryViewModel.cs" />
     <Compile Include="Screens\Baro\BaroOfferingCardView.xaml.cs">
       <DependentUpon>BaroOfferingCardView.xaml</DependentUpon>
@@ -77,6 +80,10 @@
       <DependentUpon>BaroOfferingLargeRowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\Baro\BaroOfferingViewModel.cs" />
+    <Compile Include="Screens\WeaponsView.xaml.cs">
+      <DependentUpon>WeaponsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\WeaponsViewModel.cs" />
     <Compile Include="ViewModel.cs" />
     <Page Include="Components\Items\ItemCardView.xaml">
       <SubType>Designer</SubType>
@@ -188,6 +195,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Screens\WeaponsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -216,6 +227,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Warframe.Data\Warframe.Data.csproj">
+      <Project>{269564ed-cdd7-4d07-b3ec-8f9548c0b1e4}</Project>
+      <Name>Warframe.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Warframe\Warframe.csproj">
       <Project>{db39f6e5-4cb9-4f99-ae60-cb1f6c623912}</Project>
       <Name>Warframe</Name>
@@ -223,7 +238,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Components\Items\Warframes\" />
-    <Folder Include="Components\Items\Weapons\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

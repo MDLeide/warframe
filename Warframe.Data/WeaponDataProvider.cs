@@ -1,8 +1,11 @@
-﻿using System;
-
-namespace Warframe.Data
+﻿namespace Warframe.Data
 {
-    public class WeaponDataProvider
+    class WeaponDataProvider : DataProvider<Weapon, WeaponExport>
     {
+        public WeaponDataProvider(Client client, int refreshMinutes)
+            : base(
+                client, 
+                refreshMinutes, 
+                (c) => c.GetWeaponsData()) { }
     }
 }
