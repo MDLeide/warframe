@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Warframe.Data\Warframe.Data.csproj">
-      <Project>{269564ed-cdd7-4d07-b3ec-8f9548c0b1e4}</Project>
+      <Project>{e0be9c59-48c6-4799-bf7f-f82632d9f8b2}</Project>
       <Name>Warframe.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Warframe\Warframe.csproj">

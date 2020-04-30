@@ -14,8 +14,9 @@ namespace Warframe.Data.Test
                     TestConstants.BaseUrl, 
                     TestConstants.Index, 
                     TestConstants.Refresh);
+            var task = dataAccess.Load();
+            task.Wait();
 
-            dataAccess.Load().Wait();
             var weapons = dataAccess.GetAllWeapons().Result;
             Assert.IsNotNull(weapons);
         }

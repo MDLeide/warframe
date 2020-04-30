@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SevenZip;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +10,14 @@ namespace Warframe.Data
 {
     class Client : IDisposable
     {
+        class Progress : ICodeProgress
+        {
+            public void SetProgress(long inSize, long outSize)
+            {
+                
+            }
+        }
+
         Index _index;
         HttpClient _client;
 
@@ -21,16 +31,34 @@ namespace Warframe.Data
         {
             var client = new HttpClient();
             client.BaseAddress = new Uri(baseAddress);
-            var response = await client.GetAsync(indexLocation);
-            var indexData = await response.Content.ReadAsStringAsync();
+            string indexData;
+            using (var response = await client.GetAsync(indexLocation))
+            {
+                using (var decodeStream = new MemoryStream())
+                {
+                    var decoder = new SevenZip.Compression.LZMA.Decoder();
+                    using (var contentStream = await response.Content.ReadAsStreamAsync())
+                    {
+                        var train = decoder.Train(contentStream);
+                        decoder.Code(contentStream, decodeStream, contentStream.Length, 100000, new Progress());
+                        using (var sr = new StreamReader(decodeStream))
+                        {
+                            indexData = sr.ReadToEnd();
+                        }
+                    }
+                }
+            }
+
             var index = Index.CreateFromString(baseAddress, indexData);
             return new Client(index, client);
         }
 
         public async Task<string> GetWeaponsData()
         {
-            var response = await _client.GetAsync(_index.Weapons);
-            return await response.Content.ReadAsStringAsync();
+            using (var response = await _client.GetAsync(_index.Weapons))
+            {
+                return await response.Content.ReadAsStringAsync();
+            }
         }
 
         public void Dispose()

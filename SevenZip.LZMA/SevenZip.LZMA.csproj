@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E0BE9C59-48C6-4799-BF7F-F82632D9F8B2}</ProjectGuid>
+    <ProjectGuid>{CCA63EB5-1DCE-49A0-887C-1DCCF69EE1C4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Warframe.Data</RootNamespace>
-    <AssemblyName>Warframe.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>SevenZip.LZMA</RootNamespace>
+    <AssemblyName>SevenZip.LZMA</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,32 +40,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
-    <Compile Include="DataProvider.cs" />
-    <Compile Include="Export.cs" />
-    <Compile Include="Index.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeaponDataProvider.cs" />
-    <Compile Include="WeaponExport.cs" />
-    <Compile Include="WeaponsDataAccess.cs" />
+    <Compile Include="Common\CommandLineParser.cs" />
+    <Compile Include="Common\CRC.cs" />
+    <Compile Include="Common\InBuffer.cs" />
+    <Compile Include="Common\OutBuffer.cs" />
+    <Compile Include="Compress\LzmaAlone\LzmaAlone.cs" />
+    <Compile Include="Compress\LzmaAlone\LzmaBench.cs" />
+    <Compile Include="Compress\LzmaAlone\Properties\AssemblyInfo.cs" />
+    <Compile Include="Compress\LzmaAlone\Properties\Resources.cs" />
+    <Compile Include="Compress\LzmaAlone\Properties\Settings.cs" />
+    <Compile Include="Compress\LZMA\LzmaBase.cs" />
+    <Compile Include="Compress\LZMA\LzmaDecoder.cs" />
+    <Compile Include="Compress\LZMA\LzmaEncoder.cs" />
+    <Compile Include="Compress\LZ\IMatchFinder.cs" />
+    <Compile Include="Compress\LZ\LzBinTree.cs" />
+    <Compile Include="Compress\LZ\LzInWindow.cs" />
+    <Compile Include="Compress\LZ\LzOutWindow.cs" />
+    <Compile Include="Compress\RangeCoder\RangeCoder.cs" />
+    <Compile Include="Compress\RangeCoder\RangeCoderBit.cs" />
+    <Compile Include="Compress\RangeCoder\RangeCoderBitTree.cs" />
+    <Compile Include="ICoder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="index.txt" />
-    <Content Include="notes.txt" />
+    <Content Include="Compress\LzmaAlone\LzmaAlone.csproj" />
+    <Content Include="Compress\LzmaAlone\LzmaAlone.sln" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="weapons.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SevenZip.LZMA\SevenZip.LZMA.csproj">
-      <Project>{cca63eb5-1dce-49a0-887c-1dccf69ee1c4}</Project>
-      <Name>SevenZip.LZMA</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Warframe\Warframe.csproj">
-      <Project>{db39f6e5-4cb9-4f99-ae60-cb1f6c623912}</Project>
-      <Name>Warframe</Name>
-    </ProjectReference>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -21,7 +21,6 @@ namespace Warframe.Data
         IEnumerable<TObjectType> _objects;
         DateTimeOffset _refresh;
 
-
         protected DataProvider(Client client, int refreshMinutes, Func<Client, Task<string>> getData)
         {
             _client = client;
@@ -29,7 +28,7 @@ namespace Warframe.Data
             _getData = getData;
         }
         
-        public virtual async Task<IEnumerable<TObjectType>> GetAll()
+        public async Task<IEnumerable<TObjectType>> GetAll()
         {
             if (_refresh <= DateTimeOffset.Now)
             {
@@ -44,7 +43,7 @@ namespace Warframe.Data
             return _objects;
         }
 
-        protected virtual async Task<IEnumerable<TObjectType>> Fetch()
+        async Task<IEnumerable<TObjectType>> Fetch()
         {
             var data = await _getData.Invoke(_client);
             var export = JsonConvert.DeserializeObject<TExportType>(data, _serializationSettings);
