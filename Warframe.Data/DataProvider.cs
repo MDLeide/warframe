@@ -6,19 +6,18 @@ using Newtonsoft.Json.Serialization;
 
 namespace Warframe.Data
 {
-    class DataProvider<TObjectType, TExportType>
-        where TExportType: Export<TObjectType>
+    class DataProvider<TObjectType>
     {
         readonly JsonSerializerSettings _serializationSettings = new JsonSerializerSettings()
         {
             ContractResolver = new CamelCasePropertyNamesContractResolver()
         };
 
-        Client _client;
-        int _refreshMinutes;
-        Func<Client, Task<string>> _getData;
+        readonly Client _client;
+        readonly int _refreshMinutes;
+        readonly Func<Client, Task<string>> _getData;
 
-        IEnumerable<TObjectType> _objects;
+        TObjectType _object;
         DateTimeOffset _refresh;
 
 
@@ -29,26 +28,25 @@ namespace Warframe.Data
             _getData = getData;
         }
         
-        public virtual async Task<IEnumerable<TObjectType>> GetAll()
+        public virtual async Task<TObjectType> Get()
         {
             if (_refresh <= DateTimeOffset.Now)
             {
                 _refresh = _refresh.AddMinutes(_refreshMinutes);
-                _objects = await Fetch();
+                _object = await Fetch();
             }
-            else if (_objects == null)
+            else if (_object == null)
             {
-                _objects = await Fetch();
+                _object = await Fetch();
             }
 
-            return _objects;
+            return _object;
         }
 
-        protected virtual async Task<IEnumerable<TObjectType>> Fetch()
+        protected virtual async Task<TObjectType> Fetch()
         {
             var data = await _getData.Invoke(_client);
-            var export = JsonConvert.DeserializeObject<TExportType>(data, _serializationSettings);
-            return export.Contents;
+            return JsonConvert.DeserializeObject<TObjectType>(data, _serializationSettings);
         }
     }
 }

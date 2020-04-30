@@ -1,2 +1,0 @@
-﻿http://content.warframe.com/PublicExport/index_en.txt.lzma
-http://content.warframe.com/PublicExport/Manifest/Weapons_en

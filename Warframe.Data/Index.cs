@@ -32,7 +32,7 @@ namespace Warframe.Data
             index.BaseAddress = baseAddress;
             index.Customs = lines.First(p => p.Contains("ExportCustoms"));
             index.Drones = lines.First(p => p.Contains("ExportDrones"));
-            index.Falvour = lines.First(p => p.Contains("ExportFalvour"));
+            index.Falvour = lines.First(p => p.Contains("ExportFlavour"));
             index.FusionBundles = lines.First(p => p.Contains("ExportFusionBundles"));
             index.Gear = lines.First(p => p.Contains("ExportGear"));
             index.Keys = lines.First(p => p.Contains("ExportKeys"));

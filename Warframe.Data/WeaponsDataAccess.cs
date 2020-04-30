@@ -5,10 +5,11 @@ namespace Warframe.Data
 {
     public class WeaponsDataAccess
     {
+        readonly string _baseUrl;
+        readonly string _index;
+        readonly int _refresh;
+
         WeaponDataProvider _dataProvider;
-        string _baseUrl;
-        string _index;
-        int _refresh;
 
         public WeaponsDataAccess(string baseUrl, string indexLocation, int refreshMinutes)
         {
@@ -26,7 +27,7 @@ namespace Warframe.Data
 
         public async Task<IEnumerable<Weapon>> GetAllWeapons()
         {
-            return await _dataProvider.GetAll();
+            return (await _dataProvider.Get()).ExportWeapons;
         }
     }
 }

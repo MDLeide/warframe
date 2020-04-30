@@ -18,8 +18,8 @@ namespace Warframe.Data
             }
         }
 
-        Index _index;
-        HttpClient _client;
+        readonly Index _index;
+        readonly HttpClient _client;
 
         Client(Index index, HttpClient client)
         {
@@ -34,19 +34,7 @@ namespace Warframe.Data
             string indexData;
             using (var response = await client.GetAsync(indexLocation))
             {
-                using (var decodeStream = new MemoryStream())
-                {
-                    var decoder = new SevenZip.Compression.LZMA.Decoder();
-                    using (var contentStream = await response.Content.ReadAsStreamAsync())
-                    {
-                        var train = decoder.Train(contentStream);
-                        decoder.Code(contentStream, decodeStream, contentStream.Length, 100000, new Progress());
-                        using (var sr = new StreamReader(decodeStream))
-                        {
-                            indexData = sr.ReadToEnd();
-                        }
-                    }
-                }
+                indexData = await Decompress(await response.Content.ReadAsStreamAsync());
             }
 
             var index = Index.CreateFromString(baseAddress, indexData);
@@ -64,6 +52,28 @@ namespace Warframe.Data
         public void Dispose()
         {
             _client?.Dispose();
+        }
+
+        static async Task<string> Decompress(Stream stream)
+        {
+            var output = new MemoryStream();
+
+            var properties = new byte[5];
+            stream.Read(properties, 0, 5);
+
+            var outputLengthBytes = new byte[8];
+            stream.Read(outputLengthBytes, 0, 8);
+            var outputLength = BitConverter.ToInt64(outputLengthBytes, 0);
+
+            var decoder = new SevenZip.Compression.LZMA.Decoder();
+            decoder.SetDecoderProperties(properties);
+
+            return await Task<string>.Factory.StartNew(() =>
+            {
+                decoder.Code(stream, output, stream.Length, outputLength, new Progress());
+
+                return Encoding.ASCII.GetString(output.ToArray());
+            });
         }
     }
 }

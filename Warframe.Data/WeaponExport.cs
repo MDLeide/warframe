@@ -1,7 +1,7 @@
 ﻿namespace Warframe.Data
 {
-    class WeaponExport : Export<Weapon>
+    class WeaponExport
     {
-        public Weapon[] Weapons { get; set; }
+        public Weapon[] ExportWeapons { get; set; }
     }
 }
