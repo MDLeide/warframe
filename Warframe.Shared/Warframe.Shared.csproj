@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E0BE9C59-48C6-4799-BF7F-F82632D9F8B2}</ProjectGuid>
+    <ProjectGuid>{26B89F4A-B3E1-4033-9E76-ADA8C120A5D9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Warframe.Data</RootNamespace>
-    <AssemblyName>Warframe.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>Warframe.Shared</RootNamespace>
+    <AssemblyName>Warframe.Shared</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,40 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configure.cs" />
-    <Compile Include="CoreClient.cs" />
-    <Compile Include="DataProvider.cs" />
-    <Compile Include="CoreDataType.cs" />
-    <Compile Include="Export.cs" />
-    <Compile Include="Index.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeaponDataProvider.cs" />
-    <Compile Include="WeaponExport.cs" />
-    <Compile Include="WeaponDataAccess.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="docs\index.txt" />
-    <Content Include="docs\notes.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="docs\arcaneRelics.json" />
-    <None Include="docs\weapons.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SevenZip.LZMA\SevenZip.LZMA.csproj">
-      <Project>{cca63eb5-1dce-49a0-887c-1dccf69ee1c4}</Project>
-      <Name>SevenZip.LZMA</Name>
+    <ProjectReference Include="..\Warframe.Console\Warframe.Console.csproj">
+      <Project>{b9c2eb41-fc80-4c8e-b36c-e05c0458fe36}</Project>
+      <Name>Warframe.Console</Name>
     </ProjectReference>
     <ProjectReference Include="..\Warframe\Warframe.csproj">
       <Project>{db39f6e5-4cb9-4f99-ae60-cb1f6c623912}</Project>
       <Name>Warframe</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.3</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,39 +13,39 @@ namespace Warframe.Data
             ContractResolver = new CamelCasePropertyNamesContractResolver()
         };
 
-        readonly Client _client;
+        readonly CoreClient _client;
         readonly int _refreshMinutes;
-        readonly Func<Client, Task<string>> _getData;
+        readonly Func<CoreClient, string> _getData;
 
         TObjectType _object;
         DateTimeOffset _refresh;
 
 
-        protected DataProvider(Client client, int refreshMinutes, Func<Client, Task<string>> getData)
+        protected DataProvider(CoreClient client, int refreshMinutes, Func<CoreClient, string> getData)
         {
             _client = client;
             _refreshMinutes = refreshMinutes;
             _getData = getData;
         }
         
-        public virtual async Task<TObjectType> Get()
+        public virtual TObjectType Get()
         {
             if (_refresh <= DateTimeOffset.Now)
             {
                 _refresh = _refresh.AddMinutes(_refreshMinutes);
-                _object = await Fetch();
+                _object = Fetch();
             }
             else if (_object == null)
             {
-                _object = await Fetch();
+                _object = Fetch();
             }
 
             return _object;
         }
 
-        protected virtual async Task<TObjectType> Fetch()
+        protected virtual TObjectType Fetch()
         {
-            var data = await _getData.Invoke(_client);
+            var data = _getData.Invoke(_client);
             return JsonConvert.DeserializeObject<TObjectType>(data, _serializationSettings);
         }
     }

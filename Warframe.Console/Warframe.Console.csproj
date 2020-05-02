@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E0BE9C59-48C6-4799-BF7F-F82632D9F8B2}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Warframe.Data</RootNamespace>
-    <AssemblyName>Warframe.Data</AssemblyName>
+    <ProjectGuid>{B9C2EB41-FC80-4C8E-B36C-E05C0458FE36}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Warframe.Console</RootNamespace>
+    <AssemblyName>Warframe.Console</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,40 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configure.cs" />
-    <Compile Include="CoreClient.cs" />
-    <Compile Include="DataProvider.cs" />
-    <Compile Include="CoreDataType.cs" />
-    <Compile Include="Export.cs" />
-    <Compile Include="Index.cs" />
+    <Compile Include="DataSaver.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeaponDataProvider.cs" />
-    <Compile Include="WeaponExport.cs" />
-    <Compile Include="WeaponDataAccess.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="docs\index.txt" />
-    <Content Include="docs\notes.txt" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="docs\arcaneRelics.json" />
-    <None Include="docs\weapons.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SevenZip.LZMA\SevenZip.LZMA.csproj">
-      <Project>{cca63eb5-1dce-49a0-887c-1dccf69ee1c4}</Project>
-      <Name>SevenZip.LZMA</Name>
+    <ProjectReference Include="..\Warframe.Data\Warframe.Data.csproj">
+      <Project>{e0be9c59-48c6-4799-bf7f-f82632d9f8b2}</Project>
+      <Name>Warframe.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Warframe\Warframe.csproj">
       <Project>{db39f6e5-4cb9-4f99-ae60-cb1f6c623912}</Project>
       <Name>Warframe</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.3</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

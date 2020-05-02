@@ -14,5 +14,6 @@ namespace Warframe.UI.Components.Items.Weapons
         }
 
         public Weapon Weapon { get; }
+        public string Name => Weapon.Name;
     }
 }

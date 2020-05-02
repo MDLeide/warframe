@@ -8,6 +8,12 @@ namespace Warframe
     {
         Auto,
         Burst,
+        Melee,
+        Active,
+        Charge,
+        Duplex,
+        Held,
+        AutoBurst,
         Semi
     }
 }

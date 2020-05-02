@@ -14,7 +14,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Button Command="{Binding Load}" Content="Load" Grid.Row="0"/>
-        <screens:WeaponsView Grid.Row="1"/>
+        <screens:WeaponsView Grid.Row="1" DataContext="{Binding Weapons}"/>
         <!--<baro:BaroHistoryView DataContext="{Binding BaroHistory}"/>-->
     </Grid>
 </Window>

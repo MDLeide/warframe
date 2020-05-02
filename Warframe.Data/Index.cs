@@ -9,7 +9,7 @@ namespace Warframe.Data
 
         public string Customs { get; private set; }
         public string Drones { get; private set; }
-        public string Falvour { get; private set; }
+        public string Flavour { get; private set; }
         public string FusionBundles { get; private set; }
         public string Gear { get; private set; }
         public string Keys { get; private set; }
@@ -24,6 +24,47 @@ namespace Warframe.Data
         public string Weapons { get; private set; }
         public string Manifest { get; private set; }
 
+        public string GetByDataType(CoreDataType dataType)
+        {
+            switch (dataType)
+            {
+                case CoreDataType.Customs:
+                    return Customs;
+                case CoreDataType.Drones:
+                    return Drones;
+                case CoreDataType.Flavour:
+                    return Flavour;
+                case CoreDataType.FusionBundles:
+                    return FusionBundles;
+                case CoreDataType.Gear:
+                    return Gear;
+                case CoreDataType.Keys:
+                    return Keys;
+                case CoreDataType.Recipes:
+                    return Recipes;
+                case CoreDataType.Regions:
+                    return Recipes;
+                case CoreDataType.RelicArcane:
+                    return RelicArcane;
+                case CoreDataType.Resources:
+                    return Resources;
+                case CoreDataType.Sentinels:
+                    return Sentinels;
+                case CoreDataType.SortieRewards:
+                    return SortieRewards;
+                case CoreDataType.Upgrades:
+                    return Upgrades;
+                case CoreDataType.Warframes:
+                    return Warframes;
+                case CoreDataType.Weapons:
+                    return Weapons;
+                case CoreDataType.Manifest:
+                    return Manifest;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(dataType), dataType, null);
+            }
+        }
+
         public static Index CreateFromString(string baseAddress, string data)
         {
             var lines = data.Split(new[] {Environment.NewLine}, StringSplitOptions.None).Select(p => p.Trim());
@@ -32,7 +73,7 @@ namespace Warframe.Data
             index.BaseAddress = baseAddress;
             index.Customs = lines.First(p => p.Contains("ExportCustoms"));
             index.Drones = lines.First(p => p.Contains("ExportDrones"));
-            index.Falvour = lines.First(p => p.Contains("ExportFlavour"));
+            index.Flavour = lines.First(p => p.Contains("ExportFlavour"));
             index.FusionBundles = lines.First(p => p.Contains("ExportFusionBundles"));
             index.Gear = lines.First(p => p.Contains("ExportGear"));
             index.Keys = lines.First(p => p.Contains("ExportKeys"));

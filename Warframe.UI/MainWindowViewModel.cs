@@ -14,7 +14,7 @@ namespace Warframe.UI
         const string _index = "http://content.warframe.com/PublicExport/index_en.txt.lzma";
         const int _refresh = 60;
 
-        WeaponsDataAccess _dataAccess;
+        WeaponDataAccess _dataAccess;
 
         RelayCommand _load;
         public RelayCommand Load
@@ -22,10 +22,11 @@ namespace Warframe.UI
             get => _load ?? (_load = new RelayCommand(() => OnLoad()));
         }
 
-        public async Task OnLoad()
+        public void OnLoad()
         {
-            _dataAccess = new WeaponsDataAccess(_baseUrl, _index, _refresh);
-            var weapons = await _dataAccess.GetAllWeapons();
+            _dataAccess = new WeaponDataAccess(_baseUrl, _index, _refresh);
+            _dataAccess.Load();
+            var weapons = _dataAccess.GetAllWeapons();
             Weapons = new WeaponsViewModel(weapons);
         }
 

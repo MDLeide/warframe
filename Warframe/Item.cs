@@ -2,12 +2,12 @@
 {
     public class Item
     {
-        public string Name { get; set; }
-        public string UniqueName { get; set; }
-        public bool CodexSecret { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string UniqueName { get; set; }
+        public virtual bool CodexSecret { get; set; }
  
-        public string Type { get; set; }
-        public ItemType TypedType { get; set; }
-        public string Description { get; set; }
+        public virtual string Type { get; set; }
+        public virtual ItemType TypedType { get; set; }
+        public virtual string Description { get; set; }
     }
 }
