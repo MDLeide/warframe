@@ -4,8 +4,9 @@
     {
         public WeaponDataProvider(CoreClient client, int refreshMinutes)
             : base(
-                client, 
-                refreshMinutes, 
-                (c) => c.GetWeaponsData()) { }
+                client,
+                refreshMinutes,
+                (c) => c.GetWeaponsData())
+        { }
     }
 }

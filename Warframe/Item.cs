@@ -1,6 +1,11 @@
 ﻿namespace Warframe
 {
-    public class Item
+    public interface IUniqueName
+    {
+        string UniqueName { get; set; }
+    }
+
+    public class Item : IUniqueName
     {
         public virtual string Name { get; set; }
         public virtual string UniqueName { get; set; }

@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Warframe.Shared</RootNamespace>
     <AssemblyName>Warframe.Shared</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,10 +44,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Warframe.Console\Warframe.Console.csproj">
-      <Project>{b9c2eb41-fc80-4c8e-b36c-e05c0458fe36}</Project>
-      <Name>Warframe.Console</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Warframe\Warframe.csproj">
       <Project>{db39f6e5-4cb9-4f99-ae60-cb1f6c623912}</Project>
       <Name>Warframe</Name>

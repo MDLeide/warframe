@@ -19,7 +19,7 @@ namespace Warframe
         {
             var nullableType = typeof(Nullable<>);
 
-            if (objectType.GetGenericTypeDefinition().Equals(nullableType))
+            if (objectType.GetGenericTypeDefinition() == nullableType)
                 objectType = objectType.GenericTypeArguments[0];
 
             var str = (string) reader.Value;

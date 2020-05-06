@@ -9,14 +9,14 @@ namespace Warframe.Data.Test
         [TestMethod]
         public void TestMethod1()
         {
-            var dataAccess = 
-                new WeaponDataAccess(
-                    TestConstants.BaseUrl, 
-                    TestConstants.Index, 
-                    TestConstants.Refresh);
-            dataAccess.Load();
-            var weapons = dataAccess.GetAllWeapons();
-            Assert.IsNotNull(weapons);
+            //var dataAccess = 
+            //    new WeaponDataAccess(
+            //        TestConstants.BaseUrl, 
+            //        TestConstants.Index, 
+            //        TestConstants.Refresh);
+            //dataAccess.Load();
+            //var weapons = dataAccess.GetAllWeapons();
+            //Assert.IsNotNull(weapons);
         }
     }
 }
