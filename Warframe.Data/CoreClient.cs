@@ -78,11 +78,6 @@ namespace Warframe.Data
             }
         }
 
-        public string GetWeaponsData()
-        {
-            return GetData(CoreDataType.Weapons);
-        }
-
         public void Dispose()
         {
             _client?.Dispose();

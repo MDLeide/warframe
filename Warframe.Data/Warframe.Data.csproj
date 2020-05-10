@@ -43,18 +43,14 @@
   <ItemGroup>
     <Compile Include="Configure.cs" />
     <Compile Include="CoreClient.cs" />
-    <Compile Include="DataAccess.cs" />
-    <Compile Include="DataProvider.cs" />
+    <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="CoreDataType.cs" />
-    <Compile Include="DropDataAccess.cs" />
-    <Compile Include="Export.cs" />
-    <Compile Include="IDataAdapter.cs" />
+    <Compile Include="DataAccess\DropDataAccess.cs" />
+    <Compile Include="DataAccess\RelicDataAccess.cs" />
+    <Compile Include="ExportWrapper.cs" />
     <Compile Include="Index.cs" />
-    <Compile Include="JsonFileDataAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeaponDataProvider.cs" />
-    <Compile Include="WeaponExport.cs" />
-    <Compile Include="WeaponDataAccess.cs" />
+    <Compile Include="DataAccess\WeaponDataAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="docs\index.txt" />

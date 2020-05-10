@@ -23,6 +23,7 @@ namespace Warframe.Data
         Upgrades,
         Warframes,
         Weapons, 
-        Manifest
+        Manifest,
+        Other
     }
 }
