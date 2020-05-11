@@ -25,7 +25,9 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
+            
             <TextBlock Grid.Column="0" Text="Crit Chance"/>
+            <TextBlock Grid.Column="0" Text="{Binding CritChance}"/>
             <TextBlock Grid.Column="1" Text="Crit Multiplier"/>
             <TextBlock Grid.Column="2" Text="Status"/>
 

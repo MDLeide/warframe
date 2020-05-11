@@ -16,6 +16,11 @@ namespace Warframe.UI
 
         WeaponDataAccess _dataAccess;
 
+        public MainWindowViewModel()
+        {
+            Configure.Init(_baseUrl, _index, _refresh);
+        }
+
         RelayCommand _load;
         public RelayCommand Load
         {
@@ -24,9 +29,8 @@ namespace Warframe.UI
 
         public void OnLoad()
         {
-            _dataAccess = new WeaponDataAccess(_baseUrl, _index, _refresh);
-            _dataAccess.Load();
-            var weapons = _dataAccess.GetAllWeapons();
+            _dataAccess = new WeaponDataAccess();
+            var weapons = _dataAccess.GetAll().Result;
             Weapons = new WeaponsViewModel(weapons);
         }
 

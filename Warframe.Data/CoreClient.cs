@@ -31,33 +31,28 @@ namespace Warframe.Data
         {
             var client = new HttpClient();
             client.BaseAddress = new Uri(baseAddress);
+
             string indexData;
-            var responseTask = client.GetAsync(indexLocation);
-            responseTask.Wait();
-            var response = responseTask.Result;
+            var task = client.GetAsync(indexLocation);
+            task.Wait();
+            var response = task.Result;
             using (response)
             {
-                var contentStreamTask = response.Content.ReadAsStreamAsync();
-                contentStreamTask.Wait();
-                var contentStream = contentStreamTask.Result;
-
-                indexData = Decompress(contentStream);
+                indexData = Decompress(await response.Content.ReadAsStreamAsync());
             }
 
             var index = Index.CreateFromString(baseAddress, indexData);
             return new CoreClient(index, client);
         }
 
-        public string GetData(CoreDataType dataType)
+        public async Task<string> GetData(CoreDataType dataType)
         {
-            var responseTask = _client.GetAsync(_index.GetByDataType(dataType));
-            responseTask.Wait();
-            var response = responseTask.Result;
+            var task = _client.GetAsync(_index.GetByDataType(dataType));
+            task.Wait();
+            var response = task.Result;
             using (response)
             {
-                var stringTask = response.Content.ReadAsStringAsync();
-                stringTask.Wait();
-                return stringTask.Result;
+                return await response.Content.ReadAsStringAsync();
             }
         }
 

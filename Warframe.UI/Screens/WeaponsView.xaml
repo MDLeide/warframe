@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <ListBox ItemsSource="{Binding Weapons}" DisplayMemberPath="Name"/>
+        <DataGrid ItemsSource="{Binding Weapons}"></DataGrid>
+        <!--<ListBox ItemsSource="{Binding Weapons}" DisplayMemberPath="Name"/>-->
     </Grid>
 </UserControl>

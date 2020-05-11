@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Warframe.Data
 {
-    public class ExportWrapper<T>
+    class WeaponExport
     {
-        public IEnumerable<T> Export { get; set; }
+        public Weapon[] ExportWeapons { get; set; }
     }
 }

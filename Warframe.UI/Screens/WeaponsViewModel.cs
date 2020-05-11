@@ -18,3 +18,4 @@ namespace Warframe.UI.Screens
         public ObservableCollection<WeaponViewModel> Weapons { get; }
     }
 }
+

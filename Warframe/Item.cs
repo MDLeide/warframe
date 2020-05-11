@@ -14,5 +14,10 @@
         public virtual string Type { get; set; }
         public virtual ItemType TypedType { get; set; }
         public virtual string Description { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
